@@ -17,7 +17,7 @@
         timeHours = Math.floor(data.time / 3600);
         timeMinutes = Math.floor((data.time - (timeHours * 3600)) / 60);
         timeSeconds = data.time - (timeHours * 3600) - (timeMinutes * 60);
-        locked = !data.distanceLocked;
+        locked = data.timeLocked;
     })
 
     const updateValues = (event) => {
@@ -42,7 +42,7 @@
 
     const toggleLocked = () => {
         runningData.update(value => {
-            value.distanceLocked = !value.distanceLocked;
+            value.timeLocked = !value.timeLocked;
             return value;
         })
     }

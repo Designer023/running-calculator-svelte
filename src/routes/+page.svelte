@@ -3,8 +3,8 @@
     import Distance from "$lib/components/Distance.svelte";
     import Pace from "$lib/components/Pace.svelte";
     import Speed from "$lib/components/Speed.svelte";
-    import Toggle from "$lib/components/inputs/toggle.svelte";
     import Panel from "$lib/components/Panel.svelte";
+    import Warning from "$lib/components/Warning.svelte";
 </script>
 
 <div class="container mx-auto">
@@ -26,6 +26,8 @@
                     <HMS/>
                 </div>
             </Panel>
+
+            <Warning text="Either distance or time must be locked to edit pace or speed." />
 
             <Panel>
                 <span slot="title">Speed</span>

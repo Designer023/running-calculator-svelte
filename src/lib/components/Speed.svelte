@@ -2,14 +2,16 @@
     import { runningData } from "../../stores/runningData";
     import Input from "$lib/components/inputs/input.svelte";
 
-    let data;
+    let disabled;
     let speedKM;
     let speed;
 
     runningData.subscribe(value => {
-        data = value;
+
         // convert time from seconds into hours, minutes and seconds
-        let {distance, time} = data;
+        let {distance, time, distanceLocked, timeLocked} = value;
+
+        disabled = (!distanceLocked && !timeLocked) || (distanceLocked && timeLocked);
 
         // speed = distance / time;
         speed = distance / time;
@@ -36,8 +38,17 @@
                 break;
         }
 
-        data.distance = Math.round(speed * data.time); // round to the nearest meter
-        runningData.set(data);
+        runningData.update(data => {
+            if (data.distanceLocked) {
+                // update time
+                data.time = Math.round(data.distance / speed); // round to the nearest second
+            } else if (data.timeLocked) {
+                // update distance
+                data.distance = Math.round(speed * data.time); // round to the nearest meter
+            }
+            return data;
+        })
+
     }
 
 </script>
@@ -45,9 +56,9 @@
 
 <div class="w-full md:flex flex-row  md:justify-start">
     <div class="w-24 pr-2">
-        <Input label="M/S" id="speed" name="speed" value={speed} onInput={updateValues}/>
+        <Input disabled={disabled} label="M/S" id="speed" name="speed" value={speed} onInput={updateValues}/>
     </div>
     <div class="w-24 pr-2">
-        <Input label="KM/H" id="speedKM" name="speedKM" value={speedKM} onInput={updateValues}/>
+        <Input disabled={disabled} label="KM/H" id="speedKM" name="speedKM" value={speedKM} onInput={updateValues}/>
     </div>
 </div>
