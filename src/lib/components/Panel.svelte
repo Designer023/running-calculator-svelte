@@ -1,12 +1,11 @@
-
 <div class="w-full bg-green-50 px-6 pb-2 mt-2 mb-4">
-    <div class="w-full">
-        <h3 class="text-2xl mb-1 mt-4">
-            <slot name="title"></slot>
-        </h3>
+	<div class="w-full">
+		<h3 class="text-2xl mb-1 mt-4">
+			<slot name="title" />
+		</h3>
 
-        <div>
-            <slot name="content"></slot>
-        </div>
-    </div>
+		<div>
+			<slot name="content" />
+		</div>
+	</div>
 </div>
