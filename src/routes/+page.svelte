@@ -20,11 +20,27 @@
                 </div>
             </Panel>
 
-            <HMS/>
+            <Panel>
+                <span slot="title">Time</span>
+                <div slot="content">
+                    <HMS/>
+                </div>
+            </Panel>
 
-            <Speed/>
+            <Panel>
+                <span slot="title">Speed</span>
+                <div slot="content">
+                    <Speed/>
+                </div>
+            </Panel>
 
-            <Pace/>
+            <Panel>
+                <span slot="title">Pace</span>
+                <div slot="content">
+                    <Pace/>
+                </div>
+            </Panel>
+
         </div>
     </form>
 </div>

@@ -27,22 +27,20 @@
 </script>
 
 
-<div class="w-full">
-    <h3 class="text-2xl mb-1 mt-4">Pace</h3>
-    <div class="w-full md:flex flex-row  md:justify-start">
-        <div class="w-24">
-            <Input label="sec/M" id="pace" name="pace" value={pacesecpermeter} onInput={updateValues}/>
-        </div>
-    </div>
-    <div class="w-full md:flex flex-row  md:justify-start">
-        <div class="w-24 pr-2">
 
-            <Input label="MM" id="paceMinutes" name="paceMinutes" value={paceMinutes}
-                   onInput={paceMinutes}/>
-        </div>
-        <div class="w-24 pr-2">
-            <Input label="SS" id="paceSeconds" name="paceSeconds" value={paceSeconds}
-                   onInput={paceSeconds}/>
-        </div>
+<div class="w-full md:flex flex-row  md:justify-start">
+    <div class="w-24">
+        <Input label="sec/M" id="pace" name="pace" value={pacesecpermeter} onInput={updateValues}/>
+    </div>
+</div>
+<div class="w-full md:flex flex-row  md:justify-start">
+    <div class="w-24 pr-2">
+
+        <Input label="MM" id="paceMinutes" name="paceMinutes" value={paceMinutes}
+               onInput={paceMinutes}/>
+    </div>
+    <div class="w-24 pr-2">
+        <Input label="SS" id="paceSeconds" name="paceSeconds" value={paceSeconds}
+               onInput={paceSeconds}/>
     </div>
 </div>

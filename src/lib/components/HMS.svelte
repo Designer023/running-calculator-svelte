@@ -39,22 +39,36 @@
         data.time = hhmmssToSec(timeHours, timeMinutes, timeSeconds);
         runningData.set(data);
     }
+
+    const toggleLocked = () => {
+        runningData.update(value => {
+            value.distanceLocked = !value.distanceLocked;
+            return value;
+        })
+    }
 </script>
 
 
-<div class="w-full">
-    <h3 class="text-2xl mb-1 mt-4">Time</h3>
-    <div class="w-full md:flex flex-row  md:justify-start">
-        <div class="w-24 pr-2">
-            <Input disabled={locked} label="HH:" id="timeHours" name="timeHours" value={timeHours} onInput={updateValues}/>
-        </div>
-        <div class="w-24  pr-2">
-            <Input disabled={locked} label="MM:" id="timeMinutes" name="timeMinutes" value={timeMinutes}
-                   onInput={updateValues}/>
-        </div>
-        <div class="w-24  pr-2">
-            <Input disabled={locked} label="SS:" id="timeSeconds" name="timeSeconds" value={timeSeconds}
-                   onInput={updateValues}/>
-        </div>
+
+<div class="w-full md:flex flex-row  md:justify-start md:items-end">
+    <div class="w-24 pr-2">
+        <Input disabled={locked} label="HH:" id="timeHours" name="timeHours" value={timeHours} onInput={updateValues}/>
+    </div>
+    <div class="w-24  pr-2">
+        <Input disabled={locked} label="MM:" id="timeMinutes" name="timeMinutes" value={timeMinutes}
+               onInput={updateValues}/>
+    </div>
+    <div class="w-24  pr-2">
+        <Input disabled={locked} label="SS:" id="timeSeconds" name="timeSeconds" value={timeSeconds}
+               onInput={updateValues}/>
+    </div>
+
+    <div class="ml-auto">
+        <button  disabled={locked} aria-disabled={locked} class="w-32 bg-red-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded aria-disabled:bg-blue-100" on:click={toggleLocked}>
+            Lock
+        </button>
+        <button  disabled={!locked} aria-disabled={!locked} class="w-32 bg-green-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded aria-disabled:bg-blue-100" on:click={toggleLocked}>
+            Unlock
+        </button>
     </div>
 </div>
