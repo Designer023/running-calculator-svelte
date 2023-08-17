@@ -4,6 +4,7 @@
     import Pace from "$lib/components/Pace.svelte";
     import Speed from "$lib/components/Speed.svelte";
     import Toggle from "$lib/components/inputs/toggle.svelte";
+    import Panel from "$lib/components/Panel.svelte";
 </script>
 
 <div class="container mx-auto">
@@ -12,10 +13,12 @@
     <form class="w-full ">
         <div class="md:flex md:items-center mb-6 flex-col">
 
-
-            <Toggle />
-
-            <Distance/>
+            <Panel>
+                <span slot="title">Distance</span>
+                <div slot="content">
+                    <Distance/>
+                </div>
+            </Panel>
 
             <HMS/>
 

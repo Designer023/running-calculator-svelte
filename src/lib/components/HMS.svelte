@@ -43,19 +43,16 @@
 
 
 <div class="w-full">
-    <h3 class="text-2xl mb-4 mt-1">Time</h3>
-    <article class="prose lg:prose-xl">
-        Time waits for no man (or woman). The same is true for your running pace.
-    </article>
+    <h3 class="text-2xl mb-1 mt-4">Time</h3>
     <div class="w-full md:flex flex-row  md:justify-start">
-        <div class="w-24">
+        <div class="w-24 pr-2">
             <Input disabled={locked} label="HH:" id="timeHours" name="timeHours" value={timeHours} onInput={updateValues}/>
         </div>
-        <div class="w-24">
+        <div class="w-24  pr-2">
             <Input disabled={locked} label="MM:" id="timeMinutes" name="timeMinutes" value={timeMinutes}
                    onInput={updateValues}/>
         </div>
-        <div class="w-24">
+        <div class="w-24  pr-2">
             <Input disabled={locked} label="SS:" id="timeSeconds" name="timeSeconds" value={timeSeconds}
                    onInput={updateValues}/>
         </div>

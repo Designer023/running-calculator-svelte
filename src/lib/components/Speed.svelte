@@ -44,12 +44,12 @@
 
 
 <div class="w-full">
-    <h3 class="text-2xl mb-4 mt-1">Speed</h3>
+    <h3 class="text-2xl mb-1 mt-4">Speed</h3>
     <div class="w-full md:flex flex-row  md:justify-start">
-        <div class="w-24">
+        <div class="w-24 pr-2">
             <Input label="M/S" id="speed" name="speed" value={speed} onInput={updateValues}/>
         </div>
-        <div class="w-24">
+        <div class="w-24 pr-2">
             <Input label="KM/H" id="speedKM" name="speedKM" value={speedKM} onInput={updateValues}/>
         </div>
     </div>
