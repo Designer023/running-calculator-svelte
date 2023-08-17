@@ -50,20 +50,20 @@
 
 
 
-<div class="w-full md:flex flex-row  md:justify-start md:items-end">
-    <div class="w-24 pr-2">
+<div class="w-full flex flex-row flex-wrap  justify-start items-end">
+    <div class="w-1/3 md:w-24 pr-2">
         <Input disabled={locked} label="HH:" id="timeHours" name="timeHours" value={timeHours} onInput={updateValues}/>
     </div>
-    <div class="w-24  pr-2">
+    <div class="w-1/3 md:w-24  pr-2">
         <Input disabled={locked} label="MM:" id="timeMinutes" name="timeMinutes" value={timeMinutes}
                onInput={updateValues}/>
     </div>
-    <div class="w-24  pr-2">
+    <div class="w-1/3 md:w-24 ">
         <Input disabled={locked} label="SS:" id="timeSeconds" name="timeSeconds" value={timeSeconds}
                onInput={updateValues}/>
     </div>
 
-    <div class="ml-auto">
+    <div class="ml-auto mt-3 md:mt-0">
         <button  disabled={locked} aria-disabled={locked} class="w-32 bg-red-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded aria-disabled:bg-blue-100" on:click={toggleLocked}>
             Lock
         </button>

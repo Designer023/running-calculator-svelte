@@ -57,8 +57,8 @@
 </script>
 
 
-<div class="w-full md:flex flex-row  md:justify-start md:items-end">
-    <div class="mr-2">
+<div class="w-full flex flex-row flex-wrap justify-start items-end">
+    <div class="w-1/2 md:w-48">
         <label for="presetOptions" class="block text-gray-700 text-sm font-bold mr-2">
             Preset distances
 
@@ -71,11 +71,11 @@
             </select>
         </label>
     </div>
-    <div class="mr-2">
+    <div class="w-1/2 md:w-48 ">
         <Input disabled={distanceLocked} label="Distance M:" id="distance" name="distance" value={distance} onInput={updateValues}/>
     </div>
 
-    <div class="ml-auto">
+    <div class="ml-auto mt-3 md:mt-0">
         <button  disabled={distanceLocked} aria-disabled={distanceLocked} class="w-32 bg-red-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded aria-disabled:bg-blue-100" on:click={toggleLocked}>
             Lock
         </button>
