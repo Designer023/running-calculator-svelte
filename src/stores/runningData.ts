@@ -16,3 +16,21 @@ const defaultData: Form = {
 
 // Set the stored value or a sane default.
 export const runningData = writable<Form>(defaultData);
+
+// Create helper functions to update the store.
+
+export const updateDistance = (distance: number) => {
+	runningData.update((data) => ({ ...data, distance }));
+};
+
+export const updateTime = (time: number) => {
+	runningData.update((data) => ({ ...data, time }));
+};
+
+export const toggleDistanceLock = () => {
+	runningData.update((data) => ({ ...data, distanceLocked: !data.distanceLocked }));
+};
+
+export const toggleTimeLock = () => {
+	runningData.update((data) => ({ ...data, timeLocked: !data.timeLocked }));
+};

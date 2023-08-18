@@ -1,5 +1,5 @@
 <script>
-	import { runningData } from '../../stores/runningData';
+	import { runningData, updateDistance, toggleDistanceLock } from '../../stores/runningData';
 	import Input from '$lib/components/inputs/input.svelte';
 
 	let distance = 0;
@@ -12,28 +12,12 @@
 	});
 
 	const updateValues = (event) => {
-		const { name, value } = event.target;
-		// depending on the updated field, update the time
-		const parsed = Number(value);
-
-		switch (name) {
-			case 'distance':
-				distance = parsed;
-				break;
-		}
-
-		runningData.update((value) => {
-			value.distance = distance;
-			return value;
-		});
+		const { value } = event.target;
+		updateDistance(Number(value));
 	};
 
 	const presetDistance = (e) => {
-		distance = Number(e.target.value);
-		runningData.update((value) => {
-			value.distance = distance;
-			return value;
-		});
+		updateDistance(Number(e.target.value));
 	};
 
 	const presetOptions = [
@@ -44,13 +28,6 @@
 		{ value: 42195, label: 'Marathon' },
 		{ value: 50000, label: '50km' }
 	];
-
-	const toggleLocked = () => {
-		runningData.update((value) => {
-			value.distanceLocked = !value.distanceLocked;
-			return value;
-		});
-	};
 </script>
 
 <div class="w-full flex flex-row flex-wrap justify-start items-end">
@@ -88,7 +65,7 @@
 			disabled={distanceLocked}
 			aria-disabled={distanceLocked}
 			class="w-32 bg-red-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded aria-disabled:bg-blue-100"
-			on:click={toggleLocked}
+			on:click={toggleDistanceLock}
 		>
 			Lock
 		</button>
@@ -96,7 +73,7 @@
 			disabled={!distanceLocked}
 			aria-disabled={!distanceLocked}
 			class="w-32 bg-green-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded aria-disabled:bg-blue-100"
-			on:click={toggleLocked}
+			on:click={toggleDistanceLock}
 		>
 			Unlock
 		</button>
